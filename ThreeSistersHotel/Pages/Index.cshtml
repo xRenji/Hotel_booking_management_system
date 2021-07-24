@@ -1,0 +1,62 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./images/Hotel.jpg" class="d-block w-100" alt="Three Sisters Hotel">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Three Sisters Hotel</h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="./images/Room.jpg" alt="Bed rooms" style="width:100%">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Bed rooms</h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="./images/Dining.jpg" alt="Dining Hall" style="width:100%">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Dining Hall</h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="./images/SwimmingPool.jpg" alt="Swimming Pool" style="width:100%">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Swimming Pool</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container" style="border-top:2px solid black; margin-top:5rem;">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="display-3">Welcome to Three Sisters Hotel</h2>
+            <p class="lead">Three Sisters Hotel since 1993 description!.</p>
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="display-4">Useful Links</h2>
+            <ul style="margin-top:2rem;">
+                <li><a href="http://banc.org.au/wp-content/uploads/2018/03/BM-Community-Services-Directory-9-Nov-2016.pdf">Katoomba Weather</a></li>
+                <li><a href="https://www.bluemts.com.au/">Bluemountain Community Setvices</a></li>
+                <li><a href="https://www.visitnsw.com/destinations/blue-mountains/katoomba-area/katoomba">Katoomba Travel Guide</a></li>
+                <li><a href="https://bluemountainstoursydney.com.au/guide-to-the-blue-mountains/">Bluemountain Travel Guide</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

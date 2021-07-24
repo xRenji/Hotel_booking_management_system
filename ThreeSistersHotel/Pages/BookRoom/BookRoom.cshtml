@@ -1,0 +1,76 @@
+﻿@page
+@model ThreeSistersHotel.Pages.BookRoomModel
+
+@{
+    ViewData["Title"] = "BookRoom";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Book a Room</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookRoomViewModel.ID" class="control-label">Room ID</label>
+                <select asp-for="BookRoomViewModel.ID" class="form-control" asp-items="ViewBag.RoomID"></select>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookRoomViewModel.CheckIn" class="control-label"></label>
+                <input asp-for="BookRoomViewModel.CheckIn" class="form-control" />
+                <span asp-validation-for="BookRoomViewModel.CheckIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookRoomViewModel.CheckOut" class="control-label"></label>
+                <input asp-for="BookRoomViewModel.CheckOut" class="form-control" />
+                <span asp-validation-for="BookRoomViewModel.CheckOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@if (Model.DiffRooms != null)
+
+{
+
+    @if (ViewData["Cost"] != null)
+    {
+        <div style="border:dashed 2px black;text-align:center">
+            <h5 style="color:lightgreen;">Your booking was successful. </h5>
+            <h5>
+                You have booked room <b>@ViewData["RoomID"]</b> at level <b>@ViewData["Level"]</b>, for the dates @String.Format("{0:dd/MM/yyyy}", ViewData["CheckIn"])
+                until @String.Format("{0:dd/MM/yyyy}", ViewData["CheckOut"]) .<br />
+
+            </h5>
+
+            <h5>
+                The total price is: <b>@ViewData["Cost"]</b> AUD. Thank you.
+            </h5>
+        </div>
+    }
+}
+
+@if (ViewData["error"] != null)
+{
+    <div style="border:dashed 2px black;text-align:center">
+        <h5 style="color:lightcoral;">Your booking was NOT successful. </h5>
+        <h5>
+            The room has already been booked for that period of time.
+        </h5>
+
+    </div>
+}
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

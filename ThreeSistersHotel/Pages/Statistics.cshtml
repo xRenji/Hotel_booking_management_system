@@ -1,0 +1,66 @@
+﻿@page
+@model ThreeSistersHotel.Pages.StatisticsModel
+@{
+    ViewData["Title"] = "Statistics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Customer distribution with respect to postcodes</h2>
+
+<br />
+
+<div>
+
+    <table class="table">
+        <tr>
+            <th>
+                Postcode
+            </th>
+            <th>
+                Number of Customers
+            </th>
+        </tr>
+
+        @foreach (var item in Model.CountStats)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Postcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomersCount)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<h2>Booking distribution with respect to rooms</h2>
+
+<br />
+
+<div>
+
+    <table class="table">
+        <tr>
+            <th>
+                Room ID
+            </th>
+            <th>
+                Number of Bookings
+            </th>
+        </tr>
+
+        @foreach (var item in Model.CountStatsRoom)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingsCount)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
